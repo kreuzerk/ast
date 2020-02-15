@@ -1,0 +1,33 @@
+{
+  "name": "ast",
+  "version": "1.0.0",
+  "description": "Typescript AST playground",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-node index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kreuzerk/ast.git"
+  },
+  "keywords": [
+    "TypeScript",
+    "AST",
+    "Playground"
+  ],
+  "author": "Kevin Kreuer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kreuzerk/ast/issues"
+  },
+  "homepage": "https://github.com/kreuzerk/ast#readme",
+  "dependencies": {
+    "harrypotter-names": "^1.1.0",
+    "typescript": "^3.7.5"
+  },
+  "devDependencies": {
+    "@types/node": "^13.5.1",
+    "ts-node": "^8.6.2"
+  }
+}
