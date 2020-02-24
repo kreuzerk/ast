@@ -2,7 +2,7 @@ import * as ts from 'typescript';
 import * as fs from 'fs';
 import * as util from 'util';
 
-import {getSourceNodes, InsertChange} from './ast-utils';
+import {getSourceNodes} from './ast-utils';
 
 const writeFile = util.promisify(fs.writeFile);
 const readfile = util.promisify(fs.readFile);
@@ -31,9 +31,10 @@ async function updateImportStatement(nodes: ts.Node[]): Promise<void> {
     const override = `'foo';`;
 
     const fileContent = await readfile('demo.ts', 'utf-8');
-    const position = importStringLiterals[importStringLiterals.length - 1].pos;
-    const prefix = fileContent.substring(0, position);
-    const suffix = fileContent.substring(position);
+    const startPosition = importStringLiterals[importStringLiterals.length - 1].pos + 1;
+    const endPosition = importStringLiterals[importStringLiterals.length - 1].end + 1;
+    const prefix = fileContent.substring(0, startPosition);
+    const suffix = fileContent.substring(endPosition);
     await writeFile('demo.ts', `${prefix}${override}${suffix}`);
     console.log('Done');
     // return new InsertChange('demo.ts', importStringLiterals[importStringLiterals.length - 1].pos, override);
