@@ -1,5 +1,6 @@
 import * as harryPotterNames from 'harrypotter-names';
 import {bar} from './foo/foo';
+import {foo} from './foo/foo';
 
 class Demo {
 
